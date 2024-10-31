@@ -474,15 +474,19 @@ public class Program
     public int Task_3_6()
     {
         int answer = 0;
-            double x, y;
-        while (true)
+        double x, y;
+        do
         {
-            double.TryParse(Console.ReadLine(), out x);
-            double.TryParse(Console.ReadLine(), out y);
-            if (x == 0 && y == 0) { break; }
-            if (y >= 0 && y <= Math.Sin(x) && x >= 0 && x <= Math.PI) answer++;
-        }
+            bool f_check = double.TryParse(Console.ReadLine(), out x);
+            if (!f_check) { break; }
+            bool s_check = double.TryParse(Console.ReadLine(), out y);
+            if (!s_check) { break; }
+            if (x >= 0 && y >= 0)
+            {
+                if (x <= Math.PI && y <= Math.Sin(x)) { answer++; }
+            }
 
+        } while (true);
         Console.WriteLine(answer);
 
 
